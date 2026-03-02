@@ -51,22 +51,67 @@ See [Contributing Guide](docs/contributing.md) for details on how to add files.
 3. Follow the naming conventions above
 4. Open a Pull Request
 
-## Generating Molecules
+## Repository Contents
 
-Use the `ppmol_gen` tool included with Particle Playground:
+### Elements (140+ files)
+
+All 118 elements (most common isotope) plus common isotopes:
+
+| Isotope | File | Notes |
+|---------|------|-------|
+| Deuterium | `H-2.ppel` | Stable, used in heavy water |
+| Tritium | `H-3.ppel` | Radioactive, fusion fuel |
+| Helium-3 | `He-3.ppel` | Rare, fusion candidate |
+| Carbon-13 | `C-13.ppel` | Stable, NMR applications |
+| Carbon-14 | `C-14.ppel` | Radioactive, carbon dating |
+| Nitrogen-15 | `N-15.ppel` | Stable isotope tracer |
+| Oxygen-18 | `O-18.ppel` | Stable isotope tracer |
+| Cobalt-60 | `Co-60.ppel` | Radioactive, medical/industrial |
+| Strontium-90 | `Sr-90.ppel` | Radioactive, nuclear fallout |
+| Iodine-131 | `I-131.ppel` | Radioactive, thyroid treatment |
+| Cesium-137 | `Cs-137.ppel` | Radioactive, nuclear fallout |
+| Uranium-235 | `U-235.ppel` | Fissile, reactor fuel |
+| Plutonium-239 | `Pu-239.ppel` | Fissile, reactor fuel |
+| Thorium-229 | `Th-229.ppel` | Nuclear clock candidate |
+
+### Molecules (200+ files)
+
+Categories include:
+- **Simple molecules**: H2O, CO2, NH3, NaCl, etc.
+- **Organic compounds**: methanol, ethanol, acetone, benzene, glucose
+- **Amino acids**: glycine, alanine, valine, tryptophan, etc.
+- **DNA/RNA**: nucleobases, sugars, nucleosides, ATP/ADP/AMP
+- **Pharmaceuticals**: aspirin, ibuprofen, acetaminophen, penicillin, amoxicillin, etc.
+- **Psychoactive compounds**: caffeine, nicotine, serotonin, dopamine, melatonin
+- **Controlled substances**: amphetamine, cocaine, LSD, MDMA, psilocybin, fentanyl, etc.
+- **More pharmaceuticals**: fluoxetine (Prozac), sertraline (Zoloft), diazepam (Valium), omeprazole, sildenafil, etc.
+- **Hormones**: testosterone, estradiol, epinephrine, norepinephrine
+- **Acids & bases**: citric acid, lactic acid, pyridine, aniline
+- **Semiconductors**: GaAs, SiC, BN, GaN, ZnO, CdSe, InP, TiO2
+- **Superconductors**: MgB2, NbN, Nb3Sn, NbTi, V3Si
+- **Fullerenes**: C60 (Buckminsterfullerene), C24, C20
+- **Industrial chemicals**: ammonium nitrate, sodium carbonate, copper sulfate, etc.
+
+## Generating Files
+
+Use the tools included with Particle Playground:
 
 ```bash
-# Generate from chemical formula
+# Generate element
+ppel_gen gen H-2.ppel H --neutrons 1
+
+# Generate all 118 elements
+ppel_gen gen-all elements/
+
+# Generate molecule from chemical formula
 ppmol_gen gen water.ppmol H2O
 
-# Download from PubChem (Python version)
-python3 ppmol_gen.py --pubchem-name caffeine --out caffeine.ppmol
-
-# Inspect a file
+# Inspect files
+ppel_gen dump element.ppel
 ppmol_gen dump molecule.ppmol
 ```
 
-See [Molecule Tools](docs/molecule-tools.md) for full documentation.
+See the main repository [docs/](https://github.com/Night-Traders-Dev/EmergentEvolution/tree/main/docs) for full documentation.
 
 ## License
 
